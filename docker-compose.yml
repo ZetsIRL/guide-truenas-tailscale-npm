@@ -1,0 +1,47 @@
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - FOWNER
+      - SETGID
+      - SETUID
+    cap_drop:
+      - ALL
+    privileged: false
+    security_opt:
+      - no-new-privileges=true
+    group_add:
+      - 568
+    ports:
+      - 443:443
+      - 81:81
+    environment:
+      TZ: UTC #Change as needed
+      PGID: "568"
+      PUID: "568"
+      UMASK: "002"
+      UMASK_SET: "002"
+    volumes:
+      - /mnt/Pool/Apps/NPM/data:/data #Change pool name or entire path
+      - /mnt/Pool/Apps/NPM/letsencrypt:/etc/letsencrypt #Change pool name or entire path
+    restart: unless-stopped
+  npm-Tailscale:
+    container_name: npm-tailscale
+    image: tailscale/tailscale
+    network_mode: service:npm
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    volumes:
+      - /dev/net/tun:/dev/net/tun
+      - $TS_HOST_STATE:/var/lib/tailscale #Change pool name or entire path, see .env
+    environment:
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_AUTH_KEY=$TS_AUTH_KEY
+      - TS_HOSTNAME=npm
+      - TS_USERSPACE=false
+    restart: unless-stopped
+networks: {}
