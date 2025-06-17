@@ -19,25 +19,6 @@ This guide accompanies my YouTube video covering the full process of setting up 
 - Verifying HTTPS access via Tailscale  
 
 ---
-## 📌 Timestamps
-00:00 Start
-
-00:14 Change web-interface ports
-
-00:50 Dataset and folder configuration
-
-02:46 Dockge installation
-
-04:10 Nginx Proxy Manager + Tailscale installation in Dockge
-
-08:21 SSL certificates
-
-10:34 DNS records
-
-11:49 Proxy hosts
-
-13:02 Success
----
 
 ## 🔗 Links
 
