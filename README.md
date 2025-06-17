@@ -1,6 +1,6 @@
 # HTTPS with Tailscale on TrueNAS SCALE and a Custom Domain
 
-This guide accompanies my YouTube video covering the full process of setting up **Nginx Proxy Manager** and **Tailscale** with a custom domain and valid SSL certificate on **TrueNAS SCALE 25.04 (Fangtooth)**.
+This guide accompanies my YouTube video covering the basic process of setting up **Nginx Proxy Manager** and **Tailscale** with a custom domain and valid SSL certificate on **TrueNAS SCALE 25.04 (Fangtooth)**.
 
 📺 **Watch the video here:**  
  
